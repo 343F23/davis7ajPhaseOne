@@ -1,26 +1,31 @@
 .main-head {
-  grid-area: header;
+    grid-area: header;
 }
 
 .content {
-  grid-area: content;
-  position: relative;
+    grid-area: content;
+    position: relative;
 }
 
 .main-nav {
-  grid-area: nav;
+    grid-area: nav;
+    color: orange;
+}
+
+.main-nav a {
+    color: orange;
 }
 
 .side {
-  grid-area: sidebar;
+    grid-area: sidebar;
 }
 
 .ad {
-  grid-area: ad;
+    grid-area: ad;
 }
 
 .main-footer {
-  grid-area: footer;
+    grid-area: footer;
 }
 
 #temp {
@@ -42,7 +47,7 @@ html>* {
     color: burlywood;
 }
 
-#bar *{
+#bar * {
     background-color: lightblue;
 }
 
@@ -51,7 +56,7 @@ html>* {
 }
 
 #searchB {
-    background-color: gray;
+    background-color: white;
 }
 
 #bar {
@@ -62,6 +67,15 @@ nav {
     border-color: darkgrey;
 }
 
+/* a{
+    color: lightcyan;
+} */
+
+a:hover {
+    background-color: #a9a9ba;
+    color: #9f2042;
+}
+
 /* .wrapper :not(.content) {
   display: none
 } */
@@ -70,61 +84,61 @@ nav {
 
 
 .wrapper {
-  display: grid;
-  gap: 20px;
-  grid-template-areas:
-    "header"
-    "nav"
-    "content"
-    "sidebar"
-    "ad"
-    "footer";
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+        "header"
+        "nav"
+        "content"
+        "sidebar"
+        "ad"
+        "footer";
 }
 
 
 @media (max-width: 256px) {
-  .wrapper>* {
-    display: none;
-  }
+    .wrapper>* {
+        display: none;
+    }
 
-  .wrapper {
-    gap: 20px;
-    grid-template-areas:
-      "content";
-  }
+    .wrapper {
+        gap: 20px;
+        grid-template-areas:
+            "content";
+    }
 
-  .content {
-    display: block;
-  }
+    .content {
+        display: block;
+    }
 }
 
 @media (min-width: 500px) {
-  .wrapper {
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas:
-      "header  header"
-      "nav     nav"
-      "sidebar content"
-      "ad      footer";
-  }
+    .wrapper {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "header  header"
+            "nav     nav"
+            "sidebar content"
+            "ad      footer";
+    }
 
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-  }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 @media (min-width: 700px) {
-  .wrapper {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas:
-      "header header  header"
-      "nav    content sidebar"
-      "nav    content ad"
-      "footer footer  footer";
-  }
+    .wrapper {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-areas:
+            "header header  header"
+            "nav    content sidebar"
+            "nav    content ad"
+            "footer footer  footer";
+    }
 
-  nav ul {
-    flex-direction: column;
-  }
+    nav ul {
+        flex-direction: column;
+    }
 }

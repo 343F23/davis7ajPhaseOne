@@ -1,121 +1,127 @@
 <!DOCTYPE html>
-<ht ml lang="en-US">
+<html lang="en-US">
 
-    
+
 <head>
     <title>Project1 Sleep</title>
     <meta charset="UTF-8">
     <meta name="author" content="Andrew Davis">
     <meta name="description" content="project 1 sleep file">
-  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-      <link href="styles.css" rel="stylesheet">
-  
-      <meta name="robots" content="noindex, noarchive, nosnippet">
-  
-  </head>
 
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+
+    <meta name="robots" content="noindex, noarchive, nosnippet">
+
+</head>
+
+<body>
 
     <h1>Sleep Record</h1>
 
-  <nav id="bar" class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="https://343f23.github.io/davis7ajPhaseOne/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sleep.html">Sleep Data</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input id= "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button id= "searchB" class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+    <nav id="bar" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sleep.html">Sleep Data</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="searchB" class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-    </div>
-</nav>
-    
-
-
-<div class="wrapper">
-    <header class="main-head">Health Journal
-        <link rel="stylesheet" href="style.css">
-    </header>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="">link to sleep health site</a></li>
-        <li><a href="">link to dream science site</a></li>
-        <li><a href="">sleep trivia link</a></li>
-      </ul>
     </nav>
-    <article class="content">
-      <h1>Sleep Vitals</h1>
-      <img id="temp" src="https://images.ctfassets.net/17o2epk8ivh7/2ZQTdBKFxvkLYhrtyeWOdg/5906eef24264641dc0d61974adfd9bfb/3840X2160_Health_and_wellness.jpg?h=1215&q=90&w=2160" alt="Health-img-top">
-
-      <form>
-        <label for="name">Target Start time:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="age">Actual Start Time:</label>
-        <input type="number" id="age" name="age" required><br><br>
-
-        <label for="gender">Sleep Quality:</label>
-        <select id="gender" name="gender" required>
-            <option value="male">Excellent</option>
-            <option value="female">Good</option>
-            <option value="other">Neutral</option>
-            <option value="other">Bad</option>
-            <option value="other">Terrible</option>
-        </select><br><br>
-
-        <label for="height">Target End Time:</label>
-        <input type="number" id="height" name="height" required><br><br>
-
-        <label for="weight">Actual End Time:</label>
-        <input type="number" id="weight" name="weight" required><br><br>
-
-        <label for="health-issues">Notable Dreams:</label><br>
-        <textarea id="health-issues" name="health-issues" rows="4" cols="50"></textarea><br><br>
-
-        <input type="submit" value="Submit">
 
 
 
-    </form>
-    </article>
-    <aside class="side">Sidebar content</aside>
-    <div class="ad">Potential Advertising</div>
-    <footer class="main-footer">Disclaimers and other info</footer>
-  </div>
+    <div class="wrapper">
+        <header class="main-head">Health Journal
+            <link rel="stylesheet" href="style.css">
+        </header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="https://www.sleephealthjournal.org/">link to sleep health site</a></li>
+                <li><a
+                        href="https://www.medicalnewstoday.com/articles/284378#:~:text=From%20evidence%20and%20new%20research,preparing%20for%20possible%20future%20threats">link
+                        to dream science site</a></li>
+                <li><a href="https://health.clevelandclinic.org/22-facts-about-sleep-that-will-surprise-you/">sleep
+                        trivia link</a></li>
+            </ul>
+        </nav>
+        <article class="content">
+            <h2>Sleep Vitals</h2>
+            <img id="temp"
+                src="https://www.usnews.com/object/image/00000186-7512-d40d-a596-7537abab0000/coverimage.png?update-time=1677002926794&size=responsive640"
+                alt="Health-img-top">
+
+            <form>
+                <label for="name">Target Start time:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="age">Actual Start Time:</label>
+                <input type="number" id="age" name="age" required><br><br>
+
+                <label for="gender">Sleep Quality:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Excellent</option>
+                    <option value="female">Good</option>
+                    <option value="other">Neutral</option>
+                    <option value="other">Bad</option>
+                    <option value="other">Terrible</option>
+                </select><br><br>
+
+                <label for="height">Target End Time:</label>
+                <input type="number" id="height" name="height" required><br><br>
+
+                <label for="weight">Actual End Time:</label>
+                <input type="number" id="weight" name="weight" required><br><br>
+
+                <label for="health-issues">Notable Dreams:</label><br>
+                <textarea id="health-issues" name="health-issues" rows="4" cols="50"></textarea><br><br>
+
+                <input type="submit" value="Submit">
+
+
+
+            </form>
+        </article>
+        <aside class="side">Sidebar content</aside>
+        <div class="ad">Potential Advertising</div>
+        <footer class="main-footer">Disclaimers and other info</footer>
+    </div>
 
 
 </body>
 
-  </html>
+</html>
