@@ -80,6 +80,13 @@ a:hover {
   display: none
 } */
 
+h1 {
+    font-family: sans-serif;
+}
+
+label {
+    font-family: serif;
+}
 
 
 

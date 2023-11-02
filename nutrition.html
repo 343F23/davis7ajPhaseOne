@@ -3,10 +3,10 @@
 
 
 <head>
-    <title>Project1 Sleep</title>
+    <title>Project1 Nutrition</title>
     <meta charset="UTF-8">
     <meta name="author" content="Andrew Davis">
-    <meta name="description" content="project 1 sleep file">
+    <meta name="description" content="project 1 nutrition file">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -18,7 +18,7 @@
 
 <body>
 
-    <h1>Sleep Record</h1>
+    <h1>Nutrition Log</h1>
 
     <nav id="bar" class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -62,47 +62,42 @@
         </header>
         <nav class="main-nav">
             <ul>
-                <li><a href="https://www.sleephealthjournal.org/">link to sleep health site</a></li>
+                <li><a href="https://www.myplate.gov/">Essential Nutrition Information</a></li>
                 <li><a
-                        href="https://www.medicalnewstoday.com/articles/284378#:~:text=From%20evidence%20and%20new%20research,preparing%20for%20possible%20future%20threats">link
-                        to dream science site</a></li>
-                <li><a href="https://health.clevelandclinic.org/22-facts-about-sleep-that-will-surprise-you/">sleep
-                        trivia link</a></li>
+                        href="https://www.delicious.com.au/recipes/collections/gallery/60-healthy-dinners-you-can-cook-in-30-minutes/1vo4q819">Healthy
+                        Recipes For Home</a></li>
+                <li><a href="https://www.everydayhealth.com/diet-nutrition/meal-prep-tips-every-beginner-should-know/">
+                        Meal Planning</a></li>
             </ul>
         </nav>
         <article class="content">
-            <h2>Sleep Vitals</h2>
+            <h2>Nutrition Data</h2>
             <img id="temp"
-                src="https://www.usnews.com/object/image/00000186-7512-d40d-a596-7537abab0000/coverimage.png?update-time=1677002926794&size=responsive640"
-                alt="Sleep-img-top">
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/USDA_MyPlate_green.svg/1200px-USDA_MyPlate_green.svg.png"
+                alt="Nutrition-img-top">
 
             <form>
                 <label for="date">Date(yyyymmdd):</label>
                 <input type="text" id="date" name="date" required><br><br>
 
-                <label for="name">Target Start time:</label>
+                <label for="name">Calories From Breakfast:</label>
                 <input type="text" id="name" name="name" required><br><br>
 
-                <label for="age">Actual Start Time:</label>
+                <label for="age">Calories From Lunch:</label>
                 <input type="number" id="age" name="age" required><br><br>
 
-                <label for="gender">Sleep Quality:</label>
+                <label for="gender">Cheat Day?:</label>
                 <select id="gender" name="gender" required>
                     <option value="">Select</option>
-                    <option value="male">Excellent</option>
-                    <option value="female">Good</option>
-                    <option value="other">Neutral</option>
-                    <option value="other">Bad</option>
-                    <option value="other">Terrible</option>
+                    <option value="male">Yes!</option>
+                    <option value="female">No</option>
                 </select><br><br>
 
-                <label for="height">Target End Time:</label>
+                <label for="height">Calories From Dinner:</label>
                 <input type="number" id="height" name="height" required><br><br>
 
-                <label for="weight">Actual End Time:</label>
-                <input type="number" id="weight" name="weight" required><br><br>
 
-                <label for="health-issues">Notable Dreams:</label><br>
+                <label for="health-issues">Summary of Meals:</label><br>
                 <textarea id="health-issues" name="health-issues" rows="4" cols="50"></textarea><br><br>
 
                 <input type="submit" value="Submit">
