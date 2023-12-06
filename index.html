@@ -62,10 +62,10 @@
             <link rel="stylesheet" href="style.css">
         </header>
         <nav class="main-nav">
-            <ul>
-                <li><a href="">link to heart health site</a></li>
-                <li><a href="">link to body composition/ weight site</a></li>
-                <li><a href="">health trivia link</a></li>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="https://health.gov/myhealthfinder/health-conditions/heart-health/keep-your-heart-healthy">link to heart health site</a></li>
+                <li class="list-group-item"><a href="https://www.webmd.com/fitness-exercise/what-is-body-composition">link to body composition/ weight site</a></li>
+                <li class="list-group-item"><a href="https://www.readersdigest.ca/health/healthy-living/medical-trivia/">health trivia link</a></li>
             </ul>
         </nav>
         <article class="content">
@@ -112,7 +112,100 @@
         <footer class="main-footer">Disclaimers and other info</footer>
     </div>
 
+    <!-- ==================================================== -->
 
+    <script>
+        async function getEquivalentWord(word) {
+            const datamuseUrl = `https://api.datamuse.com/words?rel_syn=${word}`;
+            const response = await fetch(datamuseUrl);
+            const data = await response.json();
+
+            // For simplicity, let's choose the first synonym
+            return data.length > 0 ? data[0].word : null;
+        }
+
+        async function getGif(word) {
+            const giphyApiKey = 'SztW1d8PkRbIi0xhFwUPyWmYZEFPzC0M';
+            const giphyUrl = `https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${word}&limit=1&offset=0&rating=r&lang=en&bundle=messaging_non_clips`;
+            const response = await fetch(giphyUrl);
+            const data = await response.json();
+
+            // For simplicity, let's assume there is at least one gif
+            return data.data.length > 0 ? data.data[0].images.original.url : null;
+        }
+
+        function createBootstrapCard(title, gifUrl) {
+            // Create Bootstrap card element
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.style.width = '18rem';
+            card.style.height = '18rem';
+            card.id = 'card'
+
+            // Create card body
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+
+            // Create card title
+            const cardTitle = document.createElement('h5');
+            cardTitle.className = 'card-title text-center'; // Adding 'text-center' class
+            cardTitle.textContent = title;
+
+            // Create card image
+            const cardImage = document.createElement('img');
+            cardImage.src = gifUrl;
+            cardImage.className = 'card-img-top';
+            cardImage.alt = 'GIF';
+
+            // Append elements to the card body
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardImage);
+
+            // Append card body to the card
+            card.appendChild(cardBody);
+
+            // Append the card to the body
+            document.querySelector(".content").appendChild(card);
+        }
+
+        async function main() {
+            const inputWord = 'Vigorous'; // You can replace this with user input or any other word
+
+            try {
+                // Step 1: Get an equivalent word using Datamuse API
+                const equivalentWord = await getEquivalentWord(inputWord);
+
+                if (equivalentWord) {
+                    // Step 2: Get a gif using Giphy API for the equivalent word
+                    const gifUrl = await getGif(equivalentWord);
+
+                    // Displaying the results
+                    console.log(`Equivalent Word: ${equivalentWord}`);
+                    console.log("GIF URL:");
+                    console.log(gifUrl);
+
+                    // Step 3: Create a Bootstrap card with the title "Health" and display the gif
+                    createBootstrapCard('Health:', gifUrl);
+                } else {
+                    console.log("No equivalent word found.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        main();
+    </script>
+
+
+    <!-- ================================================================================= -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
