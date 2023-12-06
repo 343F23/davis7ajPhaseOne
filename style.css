@@ -28,19 +28,19 @@
     grid-area: footer;
 }
 
-#temp {
+/* #temp { */
 
     /* display: block; 
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto; */
-    position: absolute;
+    /* position: absolute;
     top: 0;
     right: 30%;
     width: 300px;
     height: 200px;
-}
+} */
 
 html>* {
     background-color: darkslategray;
@@ -67,13 +67,13 @@ nav {
     border-color: darkgrey;
 }
 
-#card {
+/* #card {
     position: absolute;
     top: 50%;
     right: 30%;
     width: 300px;
     height: 200px;
-}
+} */
 
 /* a{
     color: lightcyan;
