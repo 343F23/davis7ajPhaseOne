@@ -79,6 +79,10 @@ nav {
     color: lightcyan;
 } */
 
+.list-group-item {
+    background-color:darkslateblue;
+}
+
 a:hover {
     background-color: #a9a9ba;
     color: #9f2042;

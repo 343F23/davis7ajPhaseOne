@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="sleep.html">Sleep Data</a>
@@ -43,7 +43,7 @@
                         <a class="nav-link" href="nutrition.html">Nutrition</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="balance.html">Emotional Health</a>
+                        <a class="nav-link active" href="balance.html">Emotional Health</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -76,7 +76,7 @@
                 src="https://cmha.ca/wp-content/uploads/2023/03/MicrosoftTeams-image-5.png"
                 alt="Emotional-img-top">
 
-            <form>
+            <form id="balanceForm">
                 <label for="date">Date(yyyymmdd):</label>
                 <input type="text" id="date" name="date" required><br><br>
 
@@ -89,8 +89,8 @@
                 <label for="gender">Weekend / Holiday?:</label>
                 <select id="gender" name="gender" required>
                     <option value="">Select</option>
-                    <option value="male">Yes!</option>
-                    <option value="female">No</option>
+                    <option value="Yes!">Yes!</option>
+                    <option value="No">No</option>
                 </select><br><br>
 
                 <label for="height">Hours spent Socializing:</label>
@@ -102,6 +102,10 @@
 
                 <input type="submit" value="Submit">
 
+<!-- Add buttons for displaying and deleting data based on the form's date -->
+<button type="button" onclick="displayFormData()">Display Data</button>
+<button type="button" onclick="deleteFormData()">Delete Data</button>
+<button type="button" onclick="exportFormData()">Export Data</button>
 
 
             </form>
@@ -146,7 +150,7 @@
         cardBody.className = 'card-body';
 
         // Create card title
-        const cardTitle = document.createElement('h5');
+        const cardTitle = document.createElement('h1');
         cardTitle.className = 'card-title text-center'; // Adding 'text-center' class
         cardTitle.textContent = title;
 
@@ -198,6 +202,149 @@
 
 
 <!-- ================================================================================= -->
+
+<script>
+    // Function to save form data in local storage
+    function saveFormData(event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        const formData = {
+            date: "balance" + document.getElementById('date').value,
+            WorkSchoolHours: document.getElementById('name').value,
+            RecreationHours: document.getElementById('age').value,
+            WeekendOrHoliday: document.getElementById('gender').value,
+            SocialHours: document.getElementById('height').value,
+            DailySummary: document.getElementById('health-issues').value
+        };
+
+        // Retrieve existing data from local storage or initialize an empty array
+        let storedData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        // Check if an entry for the given date already exists
+        const existingEntryIndex = storedData.findIndex(entry => entry.date === formData.date);
+
+        // If an entry exists, update it; otherwise, add a new entry
+        if (existingEntryIndex !== -1) {
+            storedData[existingEntryIndex] = formData;
+        } else {
+            storedData.push(formData);
+        }
+
+        // Save the updated array back to local storage
+        localStorage.setItem('formData', JSON.stringify(storedData));
+
+        // Clear the form fields after saving
+        document.getElementById('date').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('gender').value = '';
+        document.getElementById('height').value = '';
+        document.getElementById('health-issues').value = '';
+
+        // Optionally, you can display a message to the user indicating successful save
+        alert('Form data saved successfully!');
+    }
+
+    // Attach the saveFormData function to the form's submit event
+    document.getElementById('balanceForm').addEventListener('submit', saveFormData);
+
+    // Function to display stored form data in their respective form fields
+    function displayFormData() {
+        const searchDate = document.getElementById('date').value;
+        if (!searchDate) {
+            alert('Please enter a date before clicking the button.');
+            return;
+        }
+
+        // Retrieve stored data from local storage
+        const storedData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        // Find the first matching submission for the specified date
+        const matchingSubmission = storedData.find(submission => submission.date === "balance" + searchDate);
+
+        // Display the matching data on the form
+        if (matchingSubmission) {
+            document.getElementById('name').value = matchingSubmission.WorkSchoolHours;
+            document.getElementById('age').value = matchingSubmission.RecreationHours;
+            document.getElementById('gender').value = matchingSubmission.WeekendOrHoliday;
+            document.getElementById('height').value = matchingSubmission.SocialHours;
+            document.getElementById('health-issues').value = matchingSubmission.DailySummary;
+
+            console.log(`Data for ${searchDate} displayed on the form.`);
+        } else {
+            alert(`No data found for ${searchDate}.`);
+        }
+    }
+
+    // Function to delete data for the specified date
+    function deleteFormData() {
+        const searchDate = "balance" + document.getElementById('date').value;
+        if (!searchDate) {
+            alert('Please enter a date before clicking the button.');
+            return;
+        }
+
+        // Retrieve stored data from local storage
+        let storedData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        // Find the index of the matching submission for the specified date
+        const matchingIndex = storedData.findIndex(submission => submission.date === searchDate);
+
+        // Delete the matching data from the array
+        if (matchingIndex !== -1) {
+            storedData.splice(matchingIndex, 1);
+
+            // Save the updated array back to local storage
+            localStorage.setItem('formData', JSON.stringify(storedData));
+
+            alert(`Data for ${searchDate} deleted successfully.`);
+        } else {
+            alert(`No data found for ${searchDate}.`);
+        }
+
+        document.getElementById('date').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('gender').value = '';
+        document.getElementById('height').value = '';
+        document.getElementById('health-issues').value = '';
+    }
+
+// ------------------------
+
+// Function to export form data as JSON
+function exportFormData() {
+        // Retrieve stored data from local storage
+        const storedData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        if (storedData.length === 0) {
+            alert('No data to export.');
+            return;
+        }
+
+        // Create a JSON blob
+        const jsonBlob = new Blob([JSON.stringify(storedData, null, 2)], { type: 'application/json' });
+
+        // Create a link element to trigger the download
+        const linkElement = document.createElement('a');
+        linkElement.href = URL.createObjectURL(jsonBlob);
+        linkElement.download = 'formData.json';
+
+        // Append the link to the document
+        document.body.appendChild(linkElement);
+
+        // Trigger a click on the link to start the download
+        linkElement.click();
+
+        // Remove the link from the document
+        document.body.removeChild(linkElement);
+    }
+
+// -------------------------------
+
+
+</script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
